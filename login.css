@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+}
+
+.container
+{
+
+    width:650px;
+    
+    margin:0px auto;
+    margin-top:7%;
+    border:1px purple solid;
+    
+    
+    
+    
+    
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.login_heading h2
+{
+    
+    font-size: 30px;
+    text-align: center;
+    line-height: 26px;
+    
+    background-color:purple;
+    color: white;
+    padding:12px 0px;
+    
+
+
+
+}
+
+.form_class
+{
+    text-align: center;
+    padding-top:20px;
+    padding-left: 15px;
+    padding-bottom:50px;
+    text-align:left;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.form_class input
+{
+    border-radius: 10px;
+    margin:15px 0px;
+    height: 35px;
+    width: 500px;
+}
+
+.form_class button
+{
+
+    background-color: purple;
+    color:white;
+    border-style: none;
+    border-radius: 5px;
+    height: 35px;
+    width: 100px;
+
+
+}
