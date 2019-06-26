@@ -2,10 +2,14 @@
 <html>
     <head>
             <meta charset="UTF-8">
-            <link rel="stylesheet" href="reset.css">
-            <link rel="stylesheet" href="normalise.css">
-            <link rel="stylesheet" href="login.css">
+            <link rel="stylesheet" href="./CSS/reset.css">
+            <link rel="stylesheet" href="./CSS/normalise.css">
+            <link rel="stylesheet" href="./CSS/registration.css">
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
+            <script src="./JS/registration.js"></script>
+
+
+            
 
 
     </head>
@@ -13,23 +17,57 @@
     <body>
 
         <div class="container">
-            <div class="login_heading">
+            <div class="regi_heading">
                 <h2>Registration Page </h2>
             </div>
 
-            <form class="form_class">
-              <p>Username:</p>
-              <input type="text" placeholder="Enter username">
-              <br>
+            <form name="regiForm" class="form_class">
               <p>First Name:</p>
-              <input type="text" placeholder="Enter firstname">
+              <input type="text" id="firstNametxt" placeholder='Enter firstname' required onfocusout="validation();">
+              <br>
+              <p hidden></p>
               <br>
               <p>Last Name:</p>
-              <input type="text" placeholder="Enter lastname">
+              <input type="text"  placeholder="Enter lastname" id="lastNametxt" required onfocusout="validation();">
+              <br>
+              <p hidden></p>
+              <br>
+              <p>Username:</p>
+              <input type="email"  id="username" placeholder="Enter username" required>
               <br> 
-              
+              <p hidden></p>
+              <br>
+              <p>Password:</p>
+              <input type="password" id="pwd" placeholder="password">
+              <br>
+              <p hidden></p>
+              <br>
+              Gender:
+                <input type="radio"  id="male"> 
+                    <label>Male</label>
+    
+                <input type="radio"  id="female"> 
+                    <label>Female</label>
 
-              <button type="button" formaction="#">Register</button>
+                <input type="radio" id="other">
+                    <label>Other</label>    
+                <br>
+                <p hidden></p>
+                <br>
+                <p>Address:</p>
+                <input type="text" placeholder="address">
+                <br>
+                <p hidden></p>
+                <br>
+
+                Profile Image:
+                <input type="file" >
+
+                <p hidden></p>
+                <br>
+              <button type="submit" formaction="#">Register</button>
+              <a href="login.html"><input type="button" value="Login"></a>  
+
               <br>
               
             </form>

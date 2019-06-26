@@ -1,8 +1,6 @@
-*
-{
+*{
     box-sizing: border-box;
 }
-
 
 .container
 {
@@ -21,7 +19,7 @@
 
 }
 
-.regi_heading h2
+.login_heading h2
 {
     
     font-size: 30px;
@@ -48,6 +46,14 @@
     line-height: 24px;
 }
 
+.form_class input
+{
+    border-radius: 10px;
+    margin:15px 0px;
+    height: 35px;
+    width: 500px;
+}
+
 .form_class button
 {
 
@@ -58,16 +64,5 @@
     height: 35px;
     width: 100px;
 
-
-}
-
-
-.form_class a input{
-    background-color: purple;
-    color:white;
-    border-style: none;
-    border-radius: 5px;
-    height: 35px;
-    width: 100px;
 
 }
