@@ -23,39 +23,39 @@
 
             <form name="regiForm" class="form_class">
               <p>First Name:</p>
-              <input type="text" id="firstNametxt" placeholder='Enter firstname' required onfocusout="validation();">
+              <input type="text" id="firstNametxt" placeholder='Enter firstname' required>
               <br>
               <p hidden></p>
               <br>
               <p>Last Name:</p>
-              <input type="text"  placeholder="Enter lastname" id="lastNametxt" required onfocusout="validation();">
+              <input type="text"  placeholder="Enter lastname" id="lastNametxt" required >
               <br>
               <p hidden></p>
               <br>
-              <p>Username:</p>
-              <input type="email"  id="username" placeholder="Enter username" required>
+              <p>Email Address:</p>
+              <input type="email"  id="username" placeholder="Enter emailId" required>
               <br> 
               <p hidden></p>
               <br>
               <p>Password:</p>
-              <input type="password" id="pwd" placeholder="password">
+              <input type="password" id="pwd" placeholder="password" required>
               <br>
               <p hidden></p>
               <br>
               Gender:
-                <input type="radio"  id="male"> 
+                <input type="radio" name="gender"  id="male" value="male"> 
                     <label>Male</label>
     
-                <input type="radio"  id="female"> 
+                <input type="radio" name="gender"  id="female" value="female"> 
                     <label>Female</label>
 
-                <input type="radio" id="other">
+                <input type="radio" name="gender" id="other" value="other">
                     <label>Other</label>    
                 <br>
                 <p hidden></p>
                 <br>
                 <p>Address:</p>
-                <input type="text" placeholder="address">
+                <input type="text" placeholder="address" id="address">
                 <br>
                 <p hidden></p>
                 <br>
@@ -65,7 +65,7 @@
 
                 <p hidden></p>
                 <br>
-              <button type="submit" formaction="#">Register</button>
+              <button type="submit" formaction="next.html" onclick="nameValidation();">Register</button>
               <a href="login.html"><input type="button" value="Login"></a>  
 
               <br>
