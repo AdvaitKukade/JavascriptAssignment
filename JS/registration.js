@@ -23,8 +23,9 @@ function nameValidation()
 
 function addUser()
 {   
-    var userArray=new Array();
-    var todo=new Array();
+    //var userArray=new Array();
+    let userArray;
+    let todo=[];
     var currentUserId=document.getElementById("username").value;
 
     var userObj={firstName:document.getElementById("firstNametxt").value,
@@ -33,11 +34,9 @@ function addUser()
     pass:document.getElementById("pwd").value,
     gen:document.querySelector('input[name="gender"]:checked').value,
     addres:document.getElementById("address").value,
-    todo:[]
-
-};
+    todoItem:todo};
     
-//    userArray=JSON.parse(localStorage.getItem('user'));
+ //    userArray=JSON.parse(localStorage.getItem('user'));
     
 
     if(localStorage.getItem('user'))
@@ -59,23 +58,26 @@ function addUser()
 
             if(exist==true)
             {
-                    console.log(" emailId  already exist");
+                    window.confirm(" emailId  already exist");
                     return false;
 
             }
-    }        
-    else
-    {
-        userArray.push(userObj);
-        var stringifyUser=JSON.stringify(userArray);
-    
-        localStorage.setItem('user',stringifyUser);
-                
-        document.getElementsByName("myForm").reset();
+           
+           else
+            {
+                console.log("in else");
+                userArray.push(userObj);
+                var stringifyUser=JSON.stringify(userArray);
+                console.log("hi");
+                localStorage.setItem('user',stringifyUser);
+                console.log('i m here');
+                //document.getElementsByName("myForm").reset();
+                window.location = './login.html';
             
     
-    }
+            }
     
     
-} 
+    } 
 
+}

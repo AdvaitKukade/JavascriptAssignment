@@ -34,7 +34,8 @@ function checkValidUser()
                     //console.log(" emailId  already exist");
                    // return false;
                    sessionStorage.setItem('sessionkey',email);
-                   window.open("./todo.html","_self");
+                   window.location = './todo.html';
+
 
 
 
@@ -57,3 +58,12 @@ function checkValidUser()
 
 
 }
+
+
+function gotoSignupPage()
+{
+    window.location = './registration.html';
+
+}
+
+
