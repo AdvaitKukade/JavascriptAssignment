@@ -58,3 +58,41 @@ body
     
 }
 
+
+table td
+{
+    border: 1px black solid;
+    padding: 10px;
+}
+
+
+thead tr td
+{
+    border:1px black solid;
+    padding: 10px;
+}
+
+
+button
+{
+
+    background-color: purple;
+    color:white;
+    border-style: none;
+    border-radius: 5px;
+    height: 35px;
+    width: 100px;
+
+
+}
+
+#listForDate
+{   
+    display: none;
+}
+
+#listForCategory
+{
+    display:none;
+
+}

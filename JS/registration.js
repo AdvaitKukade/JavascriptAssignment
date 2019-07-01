@@ -23,8 +23,8 @@ function nameValidation()
 
 function addUser()
 {   
-    //var userArray=new Array();
-    let userArray;
+    var userArray=new Array();
+    //let userArray;
     let todo=[];
     var currentUserId=document.getElementById("username").value;
 
@@ -65,19 +65,30 @@ function addUser()
            
            else
             {
-                console.log("in else");
+                
                 userArray.push(userObj);
                 var stringifyUser=JSON.stringify(userArray);
-                console.log("hi");
                 localStorage.setItem('user',stringifyUser);
-                console.log('i m here');
-                //document.getElementsByName("myForm").reset();
                 window.location = './login.html';
             
     
             }
     
     
-    } 
+    }
+    
+    else
+    {
+        userArray.push(userObj);
+        var stringifyUser=JSON.stringify(userArray);
+        localStorage.setItem('user',stringifyUser);
+        window.location = './login.html';
+
+    }
+
+
+
+
+
 
 }

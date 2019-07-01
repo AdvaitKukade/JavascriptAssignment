@@ -9,29 +9,36 @@
             <script src="./JS/showTodoList.js"></script>
     </head>
 
-    <body>
+    <body onload="showItem();">
 
         <div class=header>
-            
-            
-                            
             <nav class="navigationbar">
                 <a href="#">Home</a>
                 <a href="#">View My Profile</a>
                 <a href="#"> LogOut</a>
-                                    
             </nav>
                                 
-                            
-                            
         </div>
+        <button type="button" onclick="deleteTodo();">Delete</button>
+        <button type="button" onclick="filterTodo();">Filter</button>
+        
+        <select id="listForCategory" name="byCategory" onchange="filterByCat();">
+            <option value="bycategory">By Category</option>
+            <option value="Office">Office</option>
+            <option value="Social">Social</option>
+            <option value="Personal">Personal</option>
+        </select>
+        <select id="listForDate" name="byDate" onchange="filterByDate();">
+            <option value="byDate">By Date</option>
+            <option value="dueDate">Due Date</option>
+            <option value="remainderDate">Remainder Date</option>
+        </select>
+          
 
-
-
-
-
-        <table id="highscores" onclick="showItem();">
-            <tr><td>Title</td><td> category</td><td>Due Date</td><td>Remainder</td><td>isPublic</td><td>Description</td></tr>
+        <table id="tableId" >
+            <thead id="headId">
+                <tr><td id="selectItem">Select Item</td><td>Title</td><td> category</td><td>Due Date</td><td>Remainder</td><td>isPublic</td><td>Description</td><td>Edit</td></tr>
+            </thead>    
         </table>
     </body>    
 
