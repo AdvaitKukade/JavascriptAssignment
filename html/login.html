@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="../CSS/reset.css">
+            <link rel="stylesheet" href="../CSS/normalise.css">
+            <link rel="stylesheet" href="../CSS/login.css">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
+            <script src="../JS/login.js"></script>
+
+
+    </head>
+
+    <body>
+            <header>
+                    <div class="container1">
+                       
+                        <img id="logo" src="../images/logo1.png">
+                        <span id="todo">TO Do</span>
+                        <span> Application</span>
+                        <div class="navigationbar " >
+                            <nav>
+                                <a onclick="gotoHomePage();">Home</a>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+        <div class="container">
+            <div class="login_heading">
+                <h2>Login Page </h2>
+            </div>
+
+            <form class="form_class">
+              <p>Email Address:</p>
+              <input type="email" id="emailId" placeholder="Enter username" required>
+              <br>
+              <p>Password:</p>
+              <input type="password" id="pwdId" placeholder="Enter password" required>
+              <br> 
+              <button type="button" onclick="checkValidUser();">Login</button>
+              <button type="button" onclick="gotoSignupPage();">Sign Up</button>
+              
+              
+
+            </form>
+
+        </div>    
+
+
+
+
+
+    </body>
+
+
+
+
+
+</html>

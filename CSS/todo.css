@@ -39,7 +39,17 @@ body
 
 
 
-
+h2
+{
+    font-size: 30px;
+    text-align: center;
+    line-height: 26px;
+    
+    background-color:purple;
+    color: white;
+    padding:12px 0px;
+    margin-bottom: 30px;
+}
 .navigationbar a
 {
     float:left;

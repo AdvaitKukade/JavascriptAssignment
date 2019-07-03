@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="../CSS/reset.css">
+            <link rel="stylesheet" href="../CSS/normalise.css">
+            <link rel="stylesheet" href="../CSS/registration.css">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
+            <script src="../JS/registration.js"></script>
+    </head>
+
+    <body>
+
+            <header>
+                    <div class="container1">
+                       
+                        <img id="logo" src="../images/logo1.png">
+                        <span id="todo">TO Do</span>
+                        <span> Application</span>
+                        <div class="navigationbar " >
+                            <nav>
+                                <a onclick="gotoHomePage();">Home</a>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+
+        <div class="container">
+            <div class="regi_heading">
+                <h2>Registration Page </h2>
+            </div>
+
+            <form name="regiForm" class="form_class">
+              <p>First Name:</p>
+              <input type="text" id="firstNametxt" placeholder='Enter firstname' required>
+              <br>
+              <p hidden></p>
+              <br>
+              <p>Last Name:</p>
+              <input type="text"  placeholder="Enter lastname" id="lastNametxt" required >
+              <br>
+              <p hidden></p>
+              <br>
+              <p>Email Address:</p>
+              <input type="email"  id="username" placeholder="Enter emailId" required>
+              <br> 
+              <p hidden></p>
+              <br>
+              <p>Password:</p>
+              <input type="password" id="pwd" placeholder="password" required>
+              <br>
+              <p hidden></p>
+              <br>
+              Gender:
+                <input type="radio" name="gender"  id="male" value="male" checked> 
+                    <label>Male</label>
+    
+                <input type="radio" name="gender"  id="female" value="female"> 
+                    <label>Female</label>
+
+                <input type="radio" name="gender" id="other" value="other">
+                    <label>Other</label>    
+                <br>
+                <p hidden></p>
+                <br>
+                <p>Address:</p>
+                <input type="text"  id="address">
+                <br>
+                <p hidden></p>
+                <br>
+
+                Profile Image:
+                <img id="imgId" src="../images/icon.png" height="100px" width="100px">
+                <input type="file" id="profileImg" onchange="convertProfileImage();">
+                
+                <p hidden></p>
+                <br>
+              <button type="button" onclick="nameValidation();">Register</button>
+              <br>
+              
+            </form>
+
+        </div>    
+
+
+
+
+
+    </body>
+
+
+
+
+
+</html>

@@ -96,3 +96,18 @@ button
     display:none;
 
 }
+
+
+#searchBytitle
+{
+    display: none;
+}
+
+#addtodobtn
+{
+
+    margin-top: 200px;
+    text-align: center;
+
+
+}

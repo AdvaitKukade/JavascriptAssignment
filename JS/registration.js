@@ -1,3 +1,10 @@
+function gotoHomePage()
+{
+    window.location ='../index.html';
+}
+
+
+
 
 function nameValidation()
 {
@@ -8,35 +15,85 @@ function nameValidation()
     var genSelected = document.querySelector('input[name="gender"]:checked').value;
     var addr=document.getElementById("address").value;
     var letters = /^[A-Za-z]+$/;
+    var emailExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var passRex = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,15})/;
+
+
+
+
     
-    if(fname.match(letters) && lname.match(letters))
+    if(!(fname.match(letters) && lname.match(letters)))
     {
-        addUser();
+        window.confirm('Please input alphabet characters only');
+        return false;
     }
-    else
+
+
+    if(!(email.match(emailExp)))
     {
-    alert('Please input alphabet characters only');
-    return false;
-      
+        window.confirm("please enter valid email address");
+        return false;
+    }
+
+    if(!(passwd.match(passRex)))
+    {
+        window.confirm("password should contain atleast 1 Capital letter, atleast 1 small letter, special symbol and range should between 6 to 15");
+        return false;
+    }
+
+
+    addUser();
+
+
+
+
+
+    
+}
+
+
+function convertProfileImage()
+{
+    let image = document.getElementById("profileImg").files[0];
+
+    getimgbase64(image);
+
+    function getimgbase64(image)
+    {
+        let readImg = new FileReader();
+        readImg.readAsDataURL(image);
+
+        readImg.onload = function () {
+            let profileUrl = readImg.result;
+            sessionStorage.setItem("profileSessionKey",profileUrl);
+            document.getElementById("imgId").src = sessionStorage.profileSessionKey;
+        };
+
+        readImg.onerror = function (error) {
+        };
     }
 }
 
 function addUser()
 {   
     var userArray=new Array();
-    //let userArray;
+    
     let todo=[];
     var currentUserId=document.getElementById("username").value;
+    var getImg=sessionStorage.getItem("profileSessionKey");
 
-    var userObj={firstName:document.getElementById("firstNametxt").value,
-    lastName:document.getElementById("lastNametxt").value,
-    emailAddr:document.getElementById("username").value,
-    pass:document.getElementById("pwd").value,
-    gen:document.querySelector('input[name="gender"]:checked').value,
-    addres:document.getElementById("address").value,
-    todoItem:todo};
+    var userObj={
+    'firstName':document.getElementById("firstNametxt").value,
+    'lastName':document.getElementById("lastNametxt").value,
+    'emailAddr':document.getElementById("username").value,
+    'pass':document.getElementById("pwd").value,
+    'gen':document.querySelector('input[name="gender"]:checked').value,
+    'addres':document.getElementById("address").value,
+    'todoItem':todo,
+    'picture':getImg
+};
     
- //    userArray=JSON.parse(localStorage.getItem('user'));
+ 
     
 
     if(localStorage.getItem('user'))
@@ -69,7 +126,7 @@ function addUser()
                 userArray.push(userObj);
                 var stringifyUser=JSON.stringify(userArray);
                 localStorage.setItem('user',stringifyUser);
-                window.location = './login.html';
+                window.location = '../html/login.html';
             
     
             }
@@ -82,7 +139,7 @@ function addUser()
         userArray.push(userObj);
         var stringifyUser=JSON.stringify(userArray);
         localStorage.setItem('user',stringifyUser);
-        window.location = './login.html';
+        window.location = '../html/login.html';
 
     }
 
@@ -92,3 +149,31 @@ function addUser()
 
 
 }
+
+
+function convertProfileImage()
+{
+    let image = document.getElementById("profileImg").files[0];
+
+    getimgbase64(image);
+
+    function getimgbase64(image)
+    {
+        let readImg = new FileReader();
+        readImg.readAsDataURL(image);
+
+        readImg.onload = function () {
+            let profileUrl = readImg.result;
+            sessionStorage.setItem("profileSessionKey",profileUrl);
+            document.getElementById("imgId").src = sessionStorage.profileSessionKey;
+        };
+
+        readImg.onerror = function (error) {
+        };
+    }
+}
+
+
+
+
+

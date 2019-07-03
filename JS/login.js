@@ -5,7 +5,22 @@ function checkValidUser()
     var passwd=document.getElementById("pwdId").value;
     var exist=false;
     var userName;
+    var emailExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var passRex = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,15})/;
 
+
+
+    if(!(email.match(emailExp)))
+    {
+        window.confirm("please enter valid email address");
+        return false;
+    }
+
+    if(!(passwd.match(passRex)))
+    {
+        window.confirm("password should contain atleast 1 Capital letter, atleast 1 small letter, special symbol and range should between 6 to 15");
+        return false;
+    }
     
 
     if(localStorage.getItem('user'))
@@ -29,12 +44,12 @@ function checkValidUser()
 
             if(exist==true)
             {
-                    //var userName=userArray[counter].firstName;
+                
                     window.confirm("Hi  "+userName);
-                    //console.log(" emailId  already exist");
-                   // return false;
+                    
+                   
                    sessionStorage.setItem('sessionkey',email);
-                   window.location = './todo.html';
+                   window.location = '../html/showTodaList.html';
 
 
 
@@ -49,21 +64,19 @@ function checkValidUser()
 
 
 
-
-
-
-
-
-
-
-
 }
 
 
 function gotoSignupPage()
 {
-    window.location = './registration.html';
+    window.location = '../html/registration.html';
 
+}
+
+
+function gotoHomePage()
+{
+    window.location ='../index.html';
 }
 
 
