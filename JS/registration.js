@@ -4,8 +4,6 @@ function gotoHomePage()
 }
 
 
-
-
 function nameValidation()
 {
     var fname=document.getElementById("firstNametxt").value;
@@ -14,26 +12,26 @@ function nameValidation()
     var passwd=document.getElementById("pwd").value;
     var genSelected = document.querySelector('input[name="gender"]:checked').value;
     var addr=document.getElementById("address").value;
+    var repass=document.getElementById("repwd").value;
     var letters = /^[A-Za-z]+$/;
     var emailExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var passRex = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,15})/;
 
-
-
-
-    
     if(!(fname.match(letters) && lname.match(letters)))
     {
         window.confirm('Please input alphabet characters only');
         return false;
     }
 
-
-    if(!(email.match(emailExp)))
+    if(passwd.length>6 && passwd.length<15)
     {
-        window.confirm("please enter valid email address");
-        return false;
+        if(!(email.match(emailExp)))
+        {
+            window.confirm("please enter valid email address");
+            return false;
+        }
     }
+
 
     if(!(passwd.match(passRex)))
     {
@@ -42,13 +40,22 @@ function nameValidation()
     }
 
 
+    if(!(repass===passwd))
+    {
+        window.confirm('password and reentered password should be same');
+        return false;
+
+    }
+
+
+    
+
     addUser();
 
 
 
 
 
-    
 }
 
 
@@ -77,6 +84,10 @@ function convertProfileImage()
 function addUser()
 {   
     var userArray=new Array();
+    var passwd=document.getElementById("pwd").value;
+    var repass=document.getElementById("repwd").value;
+
+
     
     let todo=[];
     var currentUserId=document.getElementById("username").value;
@@ -90,8 +101,7 @@ function addUser()
     'gen':document.querySelector('input[name="gender"]:checked').value,
     'addres':document.getElementById("address").value,
     'todoItem':todo,
-    'picture':getImg
-};
+    'picture':getImg};
     
  
     
@@ -115,38 +125,31 @@ function addUser()
 
             if(exist==true)
             {
+                    
                     window.confirm(" emailId  already exist");
                     return false;
 
             }
            
-           else
-            {
+        //    else
+        //     {
                 
-                userArray.push(userObj);
-                var stringifyUser=JSON.stringify(userArray);
-                localStorage.setItem('user',stringifyUser);
-                window.location = '../html/login.html';
+        //         userArray.push(userObj);
+        //         var stringifyUser=JSON.stringify(userArray);
+        //         localStorage.setItem('user',stringifyUser);
+        //         window.location = '../html/login.html';
             
     
-            }
+        //     }
     
     
     }
     
-    else
-    {
+    
         userArray.push(userObj);
         var stringifyUser=JSON.stringify(userArray);
         localStorage.setItem('user',stringifyUser);
         window.location = '../html/login.html';
-
-    }
-
-
-
-
-
 
 }
 

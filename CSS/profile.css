@@ -113,6 +113,7 @@ body
     border-radius: 5px;
     height: 35px;
     width: 100px;
+    
 
 
 }
@@ -136,4 +137,13 @@ body
 #profileImg
 {
     size:30px;
+}
+
+#btnedit{
+    margin-left: 43%;
+}
+
+#btnsave{
+    display:none;
+    margin-left: 43%;
 }

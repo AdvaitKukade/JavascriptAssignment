@@ -38,14 +38,25 @@
     start Date:<input type="date" id="startDate">
     End Date:<input type="date" id="endDate">  
           
-
+    <div class="displayTable">
         <table id="tableId" >
-            <thead id="headId">
-                <tr id="tableRow"><td id="selectItem">Select Item</td><td>Title</td><td> category</td><td>Due Date</td><td>Remainder</td><td>isPublic</td><td>Description</td><td>Status</td><td>Edit</td></tr>
-            </thead>
-            
+            <tbody id="tblBody">
+                <thead>
+                    <tr>
+                        <td id="selectItem">Select Item</td>
+                        <td>Title</td>
+                        <td> category</td>
+                        <td>Due Date</td>
+                        <td>Remainder</td>
+                        <td>isPublic</td>
+                        <td>Description</td>
+                        <td>Status</td>
+                        <td>Edit</td>
+                    </tr>
+                </thead>
+            </tbody>
         </table>
-
+    </div>
 
         <button id="addtodobtn" type="button" onclick="goToAddPage();">Add New Todo</button> 
     </body>    

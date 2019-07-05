@@ -1,6 +1,3 @@
-
-
-
 function logout()
 {
     sessionStorage.clear();
@@ -10,13 +7,8 @@ function logout()
 function gotoHome()
 {
     var home=sessionStorage.getItem("homeSession");
-
-    
     window.location='../index.html';
-   // home.style.display="none";
-
-
-    
+   
 }
 
 
@@ -26,9 +18,6 @@ function getUserId()
 
     let sessionId= sessionStorage.getItem("sessionkey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
-     
-
-    
     let index;
     let userId;
 
@@ -40,24 +29,12 @@ function getUserId()
             userId=index;
             
             break;
-            
-            
         }   
-
-
-
     }
 
     return userId;
 
 }
-
-
-
-
-
-
-
 
 
 function showInfo()
@@ -66,23 +43,20 @@ function showInfo()
     let sessionId= sessionStorage.getItem("sessionkey");
 //let imgSessionKey=sessionStorage.getItem("profileSessionKey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
-    let userid;
+    let userid=getUserId();
     let index;
 
-    for(index=0;index<userArrayItem.length;index++)
+    // for(index=0;index<userArrayItem.length;index++)
 
-    {
-        if((userArrayItem[index].emailAddr)==sessionId)
-        {
-            userid=index;
-            break;
+    // {
+    //     if((userArrayItem[index].emailAddr)==sessionId)
+    //     {
+    //         userid=index;
+    //         break;
             
             
-        }   
-    }
-
-    
-
+    //     }   
+    // }
 
     if((userArrayItem[userid].gen) == "male")
     {
@@ -107,8 +81,6 @@ function showInfo()
     document.getElementById("username").value=userArrayItem[userid].emailAddr;
     document.getElementById("pwd").value=userArrayItem[userid].pass;
     document.getElementById("address").value=userArrayItem[userid].addres;
-
-
 
 }
 
@@ -136,6 +108,11 @@ function editChanges()
     document.getElementById("female").disabled=false;
     document.getElementById("other").disabled=false;
     document.getElementById("profileImg").disabled=false;
+    document.getElementById("btnedit").style.display="none";
+    document.getElementById("btnsave").style.display="inline";
+
+
+
 }
 
 function saveChanges()
@@ -143,10 +120,8 @@ function saveChanges()
 
     let sessionId= sessionStorage.getItem("sessionkey");
     var getImg=sessionStorage.getItem("profileSessionKey");
-
-
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
-    let userid;
+    let userid=getUserId();
     let index;
     var fname=document.getElementById("firstNametxt").value;
     var lname=document.getElementById("lastNametxt").value;
@@ -154,22 +129,51 @@ function saveChanges()
     var passwd=document.getElementById("pwd").value;
     var genSelected = document.querySelector('input[name="gender"]:checked').value;
     var addr=document.getElementById("address").value;
-    
+    var letters = /^[A-Za-z]+$/;
+    var emailExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var passRex = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,15})/;
 
-
-    
-
-    for(index=0;index<userArrayItem.length;index++)
-
+    if(!(fname.match(letters) && lname.match(letters)))
     {
-        if((userArrayItem[index].emailAddr)==sessionId)
-        {
-            userid=index;
-            break;
-            
-            
-        }   
+        window.confirm('Please input alphabet characters only');
+        return false;
     }
+
+    if(passwd.length>6 && passwd.length<15)
+    {
+        if(!(email.match(emailExp)))
+        {
+            window.confirm("please enter valid email address");
+            return false;
+        }
+    }
+
+
+    if(!(passwd.match(passRex)))
+    {
+        window.confirm("password should contain atleast 1 Capital letter, atleast 1 small letter, special symbol and range should between 6 to 15");
+        return false;
+    }
+
+
+    if(!(repass===passwd))
+    {
+        window.confirm('password and reentered password should be same');
+        return false;
+
+    }
+
+    // for(index=0;index<userArrayItem.length;index++)
+
+    // {
+    //     if((userArrayItem[index].emailAddr)==sessionId)
+    //     {
+    //         userid=index;
+    //         break;
+            
+            
+    //     }   
+    // }
 
     userArrayItem[userid].firstName=fname;
     userArrayItem[userid].lastName=lname;
@@ -181,8 +185,7 @@ function saveChanges()
 
     var stringifyUser=JSON.stringify(userArrayItem);
     localStorage.setItem('user',stringifyUser);
-
-
+    window.location.reload();
 
 }
 

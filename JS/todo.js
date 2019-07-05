@@ -14,23 +14,21 @@ function makeid(length) {
 function addItem()
 {
     var todoID=makeid(3);
-
     var todoTitleID=document.getElementById("itemName").value;
     var categoryId=document.querySelector('input[name="cate"]:checked').value;
-
-
-
     var dueDate=document.getElementById("todoDueDate").value;
     var setRemainder=document.getElementById("toRemainder").value;
     var isPublic=document.querySelector('input[name="ispublic"]:checked').value;
-
     var todoDescription = document.getElementById("description").value;
     let sessionId= sessionStorage.getItem("sessionkey");
     var userArrayItem=new Array();
     let index;
-
-
     var todoObj=new Object();
+
+
+
+
+
 
     todoObj={
         "todoNo":todoID,
@@ -62,16 +60,6 @@ function addItem()
     }
 
     window.location.reload();
-
-
-    
-
-  
-
-
-
-
-
 
 }
 
@@ -105,7 +93,7 @@ function gotoHome()
 
     
     window.location='../index.html';
-    home.style.display="none";
+   // home.style.display="none";
 
 
 }    
