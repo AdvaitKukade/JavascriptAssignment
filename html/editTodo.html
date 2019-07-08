@@ -9,68 +9,54 @@
             <script src="../JS/editTodo.js"></script>
     </head>
 
-    <body onload="showParticularTodo();">
 
-        <div class=header>
-            
-            
-                            
-            
-                <nav class="navigationbar">
-                    
-                    <a onclick="gotoProfile();">View My Profile</a>
-                    <a onclick="logout();"> LogOut</a>
-                </nav>
-                              
-                                
-                            
-                            
-        </div>
+        <body>
+
+                <div class=header>
+                        <nav class="navigationbar">
+                                <a onclick="gotoProfile();">View My Profile</a>
+                                <a onclick="logout();"> LogOut</a>
+                        </nav>
+                </div>
 
         
 
 
-        <div class="toDoForm">
+          <div class="toDoForm">
             
-            ToDo Name:
-            <input type="text" placeholder="Todo Name" id="itemName">
-            <br>
-            <br>
-            Category:
-            <input type="radio" name="cate"  id="office" value="Office"> 
+                ToDo Name:
+                <input type="text" placeholder="Todo Name" id="itemName">
+                <br>
+                <br>
+                Category:
+                <input type="radio" name="cate"  id="office" value="Office"> 
                     <label>Office</label>
-    
-            <input type="radio" name="cate"  id="social" value="Social"> 
+                        <input type="radio" name="cate"  id="social" value="Social"> 
                     <label>Social</label>
-
-            <input type="radio" name="cate" id="personal" value="Personal">
+                    <input type="radio" name="cate" id="personal" value="Personal">
                     <label>Personal</label> 
-            <br>
-            <br>
-            Due Date:
-            <input type="date" id="todoDueDate">
-            <br>
-            <br>
-            Set Remainder: <input type="checkbox" >
-            <input type="date" id="toRemainder">
-            <br>
-            <br>
-            Make Todo Public:
-            <input type="radio" id="isPublic" value="clicked" name="ispublic" >
-            <br>
-            <br>
-            Add Todo Description:
-            <input type="text" id="description">
-            <br>
-            <br>
-            <br>
+                        <br>
+                <br>
+                Due Date:
+                <input type="date" id="todoDueDate">
+                <br>
+                <br>
+                Set Remainder: <input type="checkbox" >
+                <input type="date" id="toRemainder">
+                <br>
+                <br>
+                Make Todo Public:
+                <input type="radio" id="isPublic" value="clicked" name="ispublic" >
+                <br>
+                <br>
+                Add Todo Description:
+                <input type="text" id="description">
+                <br>
+                <br>
+                <br>
 
-            <input type="button" value="Save" id="saveBtn" onclick="saveItem();">
-            <input type="button" value="GO Back" onclick="goBack();">
-        </div>
-
-
-
-
-    </body>
+                <input type="button" value="Save" id="saveBtn" onclick="saveItem();">
+                <input type="button" value="GO Back" onclick="goBack();">
+           </div>
+        </body>
 </html>    

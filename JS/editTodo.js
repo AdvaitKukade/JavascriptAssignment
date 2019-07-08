@@ -1,3 +1,4 @@
+alert("hii");
 function getUserId()
 {
     let sessionId= sessionStorage.getItem("sessionkey");
@@ -17,13 +18,13 @@ function getUserId()
     return userId;
 }
 
-function showParticularTodo()
+(function showParticularTodo()
 {
     let userid;
     let particularTodoCounter;
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
-    let userid=getUserId();
-    let particularTodoCounter;
+     userid=getUserId();
+     
     
     particularTodoCounter=sessionStorage.getItem('particularTodoCount');
     
@@ -32,7 +33,7 @@ function showParticularTodo()
     document.getElementById("toRemainder").value=userArrayItem[userid].todoItem[particularTodoCounter].remainder;
     document.getElementById("isPublic").value=userArrayItem[userid].todoItem[particularTodoCounter].public;
     document.getElementById("description").value=userArrayItem[userid].todoItem[particularTodoCounter].desc;
-}
+})();
 
 function saveItem()
 {

@@ -102,7 +102,7 @@ function showItem()
         for (var counter = 0; counter<todoParticularUserArray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo();></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo("+todoParticularUserArray[counter].todoNo+");></td></tr>";
             list.innerHTML=row;
             let tableB=document.getElementById("tblBody");
             tableB.appendChild(list);
@@ -238,7 +238,7 @@ function filterByCat()
             for (var counter = 0; counter<todoParticularUserArray.length;counter++) 
             {
                 var list=document.createElement("tr");
-                var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+counter+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button value=Edit id=button-"+counter+" onclick=editTodo();></td></tr>";
+                var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
                 list.innerHTML=row;
                 let tabBody=document.getElementById("tblBody");
                 tabBody.appendChild(list);
@@ -263,7 +263,7 @@ function filterByCat()
         for (var counter = 0; counter<filteredarray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+counter+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td><input type=checkbox name=isDoneTodo id=check-"+counter+" onclick=changestatus();></input></td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit id=button-"+counter+" onclick=editTodo();></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td><input type=checkbox name=isDoneTodo id=check-"+counter+" onclick=changestatus();></input></td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
             list.innerHTML=row;
             let tblBody=document.getElementById("tblBody");
             tblBody.appendChild(list);
@@ -286,7 +286,7 @@ function filterByCat()
         for (var counter = 0; counter<filteredarray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+counter+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit id=button-"+counter+" onclick=editTodo();></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
             list.innerHTML=row;
             let tableHead=document.getElementById("tblBody");
             tableHead.appendChild(list);
@@ -311,7 +311,7 @@ function filterByCat()
         for (var counter = 0; counter<filteredarray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+counter+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit id=button-"+counter+" onclick=editTodo();></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit  name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
             list.innerHTML=row;
             let tableHead=document.getElementById("tblBody");
             tableHead.appendChild(list);
@@ -352,7 +352,7 @@ function filterByName()
     for (var counter = 0; counter<titleArray.length;counter++) 
     {
         var list=document.createElement("tr");
-        var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+counter+"></input></td><td>"+ titleArray[counter].todoTitle + "</td><td>" + titleArray[counter].todoCategory + "</td><td>"+titleArray[counter].todoDue+"</td><td>" + titleArray[counter].remainder+"</td><td>" +titleArray[counter].public+"</td><td>" + titleArray[counter].desc+"</td><td>"+titleArray[counter].status+"</td><td> <input type=button value=Edit id=button-"+counter+" onclick=editTodo();></td></tr>";
+        var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+titleArray[counter].todoNo+"></input></td><td>"+ titleArray[counter].todoTitle + "</td><td>" + titleArray[counter].todoCategory + "</td><td>"+titleArray[counter].todoDue+"</td><td>" + titleArray[counter].remainder+"</td><td>" +titleArray[counter].public+"</td><td>" + titleArray[counter].desc+"</td><td>"+titleArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+titleArray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
         list.innerHTML=row;
         let tableHead=document.getElementById("tblBody");
         tableHead.appendChild(list);
@@ -391,34 +391,36 @@ function filterByDate()
         for (var counter = 0; counter<filteredarray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+counter+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit id=button-"+counter+" onclick=editTodo();></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
             list.innerHTML=row;
             let tableHead=document.getElementById("tblBody");
             tableHead.appendChild(list);
         }  
     }
 }
-
-function editTodo()
+function editTodo(todoId)
 {
-    let sessionId= sessionStorage.getItem("sessionkey");
-    let userArrayItem=JSON.parse(localStorage.getItem('user'));
-    var userId=getUserId();
-    var clikedarray;
-    var particularTodoCounter;
-    
-    for(var count=0;count<userArrayItem[userId].todoItem.length;count++)
-    {
-        if( document.getElementById("button-"+count).click == true)
-        {
-            clickedarray=count;
-        }
-    }
-    
-    particularTodoCounter=clikedarray-1;
-    sessionStorage.setItem('particularTodoCount',particularTodoCounter);
-    window.location = '../html/editTodo.html';
+    sessionStorage.setItem("todoid",todoId);
+    alert(todoId);
+ window.location = '../html/editTodo.html';
 }
+       
+    // for(var counter=(checkedarray.length)-1;counter>=0;counter--)
+    // {
+    //     for(let j=0;j<userArrayItem[userId].todoItem.length;j++)
+    //     {
+    //         if(userArrayItem[userId].todoItem[j].todoNo == checkedarray[counter])
+    //         {
+    //             userArrayItem[userId].todoItem.splice(j,1);
+    //         }
+    //     }
+    // }
+    
+    /* particularTodoCounter=clikedarray-1;
+    alert(particularTodoCounter);
+    sessionStorage.setItem('particularTodoCount',particularTodoCounter);
+ 
+} */
 
 function goToAddPage()
 {
