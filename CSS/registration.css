@@ -3,7 +3,6 @@
 }
 
 .container{
-
     width:650px;
     margin:0px auto;
     margin-top:7%;
@@ -12,7 +11,6 @@
 }
 
 .regi_heading h2{
-    
     font-size: 30px;
     text-align: center;
     line-height: 26px;
@@ -114,6 +112,23 @@ header{
 }
 
 #address{
-    width: 380px;
-    height: 100px;
+    width:50%;
+}
+
+.profileClass{
+    text-align: center;
+}
+
+#profileImg{
+    margin-top: 20px;
+    margin-left: 190px;
+}
+
+#regiBtn{
+    margin-left:5%;
+    margin-right: 20px;
+}
+
+.errorMsg{
+    color: red;
 }

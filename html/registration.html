@@ -6,6 +6,7 @@
             <link rel="stylesheet" href="../CSS/normalise.css">
             <link rel="stylesheet" href="../CSS/registration.css">
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
+            <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
             <script src="../JS/registration.js"></script>
     </head>
 
@@ -31,32 +32,51 @@
             </div>
 
             <form name="regiForm" class="form_class">
-            <ul>
+                <div class="profileClass">
+                    <img id="imgId" src="../images/profile.png" height="100px" width="100px">
+                    <br>
+                    <input type="file" id="profileImg" onchange="convertProfileImage();">
+                </div>
 
-              <li>First Name:</li>
-              <li>  <input type="text" id="firstNametxt" placeholder='Enter firstname' required> </li>
-              <li></li>
+              First Name:
+              <br>
+              <input type="text" id="firstNametxt" placeholder='Enter firstname' required onfocusout="nameValidation();">
+              <br>
+              <p id="error_firstName" class="errorMsg"></p>
+              <br>
+
               
-              <li>Last Name:</li>
-              <li><input type="text"  placeholder="Enter lastname" id="lastNametxt" required > </li>
-              <li></li>
+              Last Name:
+              <br>
+              <input type="text"  placeholder="Enter lastname" id="lastNametxt" required onfocusout="nameValidation();">
+              <br>
+              <p id="error_lastName" class="errorMsg"></p>
+              <br>
               
               
-              <li>Email Address:</li>
-              <li><input type="email"  id="username" placeholder="Enter emailId" required></li>
-              <li></li>
+              Email Address:
+              <br>
+              <input type="email"  id="username" placeholder="Enter emailId" required onfocusout="nameValidation();">
+              <br>
+              <p id="error_email" class="errorMsg"></p>
+              <br>
               
-              <li>Password:</li>
-             <li> <input type="password" id="pwd" placeholder="password" required> </li>
+              Password:
+              <br>
+             <input type="password" id="pwd" placeholder="password" required onfocusout="nameValidation();"> 
+             <br>
+              <p id="error_pass" class="errorMsg"></p>
+              <br>
               
-              <li></li>
-              
-              <li>Re-enter Password:</li>
-              <li><input type="password" id="repwd" placeholder="Re-enter password" required></li>
-              
-              <li></li>
+              Confirm Password:
+              <br>
+              <input type="password" id="repwd" placeholder="Re-enter password" required onfocusout="nameValidation();">
+              <br>
+              <p id="error_confirmPass" class="errorMsg"></p>
+              <br>
               Gender:
-              <li>  <input type="radio" name="gender"  id="male" value="male" checked> 
+              <br>
+               <input type="radio" name="gender"  id="male" value="male" checked> 
                     <label>Male</label>
     
                 <input type="radio" name="gender"  id="female" value="female"> 
@@ -64,24 +84,29 @@
 
                 <input type="radio" name="gender" id="other" value="other">
                     <label>Other</label>
-                </li>        
-                
-                <li></li>
-                
-                <li>Address:</li>
-                <li><input type="text"  id="address" required></li>
-                
-                <li></li>
-        
+                        
+                <br>
+                <br>
+                Address:
+                <br>
+                <!-- <input type="text"  id="address" required> -->
+                <textarea id="address"></textarea>
+                <br>
 
-                Profile Image:
-                <img id="imgId" src="../images/icon.png" height="100px" width="100px">
-                <input type="file" id="profileImg" onchange="convertProfileImage();">
+                 <!-- Profile Image: -->
+                 <br>
+                <!-- <img id="imgId" src="../images/icon.png" height="100px" width="100px">
+                <br>
+                <input type="file" id="profileImg" onchange="convertProfileImage();"> -->
+
+                <br>
                 
-                <li></li>
                 
-                </ul>
-              <button type="button" onclick="nameValidation();">Register</button>
+                
+                
+              <button type="button" id="regiBtn" onclick="addUser();">Register</button>
+              <button type="button" id="loginBtn" onclick="gotoLoginPage();">Login</button>
+
               <br>
               
             </form>

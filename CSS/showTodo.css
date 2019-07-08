@@ -47,6 +47,7 @@ body
     font-size: 16px;
     text-align: center;
     line-height: 26px;
+    cursor: pointer;
 }
 
 
@@ -72,11 +73,13 @@ button
     border-style: none;
     border-radius: 5px;
     height: 35px;
-    width: 100px;
+    width: 200px;
+    text-align: center;
+    margin-left: 40px;
 
 
 }
-
+/* 
 #listForDate
 {   
     display: none;
@@ -88,11 +91,17 @@ button
 
 }
 
-
+*/
 #searchBytitle
 {
-    display: none;
-}
+    float: left;
+    padding: 8px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 20%;
+  background: #f1f1f1;
+} 
 
 #addtodobtn
 {
@@ -114,4 +123,19 @@ button
 #headId
 {
     margin-bottom: 50px;
+}
+
+#searchBtn
+{
+    float: left;
+  width: 5%;
+  padding-right: 10px;
+  background:purple;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  margin-left: 0px;
+  margin-right: 10px;
 }

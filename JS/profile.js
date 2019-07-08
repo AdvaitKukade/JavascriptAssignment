@@ -41,22 +41,12 @@ function showInfo()
 {
     
     let sessionId= sessionStorage.getItem("sessionkey");
-//let imgSessionKey=sessionStorage.getItem("profileSessionKey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
     let userid=getUserId();
-    let index;
+    let getPass=userArrayItem[userid].pass;
+    let decryptedPass=window.atob(getPass);
 
-    // for(index=0;index<userArrayItem.length;index++)
-
-    // {
-    //     if((userArrayItem[index].emailAddr)==sessionId)
-    //     {
-    //         userid=index;
-    //         break;
-            
-            
-    //     }   
-    // }
+   
 
     if((userArrayItem[userid].gen) == "male")
     {
@@ -72,14 +62,13 @@ function showInfo()
     }
 
 
-
     
     
     document.getElementById("imgId").src = userArrayItem[userid].picture;
     document.getElementById("firstNametxt").value=userArrayItem[userid].firstName;
     document.getElementById("lastNametxt").value=userArrayItem[userid].lastName;
     document.getElementById("username").value=userArrayItem[userid].emailAddr;
-    document.getElementById("pwd").value=userArrayItem[userid].pass;
+    document.getElementById("pwd").value=decryptedPass;
     document.getElementById("address").value=userArrayItem[userid].addres;
 
 }
@@ -156,24 +145,8 @@ function saveChanges()
     }
 
 
-    if(!(repass===passwd))
-    {
-        window.confirm('password and reentered password should be same');
-        return false;
 
-    }
-
-    // for(index=0;index<userArrayItem.length;index++)
-
-    // {
-    //     if((userArrayItem[index].emailAddr)==sessionId)
-    //     {
-    //         userid=index;
-    //         break;
-            
-            
-    //     }   
-    // }
+    
 
     userArrayItem[userid].firstName=fname;
     userArrayItem[userid].lastName=lname;
@@ -185,7 +158,9 @@ function saveChanges()
 
     var stringifyUser=JSON.stringify(userArrayItem);
     localStorage.setItem('user',stringifyUser);
-    window.location.reload();
+    showInfo();
+
+    //window.location.reload();
 
 }
 

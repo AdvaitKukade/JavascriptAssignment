@@ -7,98 +7,70 @@
             <link rel="stylesheet" href="../CSS/profile.css">
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
             <script src="../JS/profile.js"></script>
-
-
-            
-
-
     </head>
 
     <body onload=showInfo();>
 
             <div class=header>
                     <nav class="navigationbar">
-                        <a onclick="gotoHome();">Home</a>
                         <a onclick="addTodo();"> Add Todos</a>
                         <a onclick="logout();"> LogOut</a>
                     </nav>
-                                        
             </div>              
-                             
-
-        <div class="container">
-            
-
-            <form name="regiForm" class="form_class">
-
-
-
+            <div class="container">
+                <form name="regiForm" class="form_class">
+                    <div class="profileClass">
+                            <!-- <img id="imgId" src="https://imgsv.imaging.nikon.com/lineup/dslr/df/img/sample/img_01.jpg" height="100px" width="100px"> -->
+                            <img id="imgId" src="../images/profile.png" height="100px" width="100px">
+                            <br>
+                            <input type="file" id="profileImg" onchange="convertProfileImage();" disabled>
+                    </div>
                     
-                    <img id="imgId" src="../images/icon.png" height="100px" width="100px">
-    
-                    <input type="file" id="profileImg" onchange="convertProfileImage();" disabled>
-
-
-              <p>First Name:</p>
-              <input type="text" id="firstNametxt" placeholder='Enter firstname' required disabled>
-              <br>
-              <p hidden></p>
-              <br>
-              <p>Last Name:</p>
-              <input type="text"  placeholder="Enter lastname" id="lastNametxt" required disabled>
-              <br>
-              <p hidden></p>
-              <br>
-              <p>Email Address:</p>
-              <input type="email"  id="username" placeholder="Enter emailId" required disabled>
-              <br> 
-              <p hidden></p>
-              <br>
-              <p>Password:</p>
-              <input type="text" id="pwd" placeholder="password" required disabled>
-              <br>
-              <p hidden></p>
-              <br>
-              Gender:
-                <input type="radio" name="gender"  id="male" value="male" disabled> 
+                    <p>First Name:</p>
+                    <input type="text" id="firstNametxt" placeholder='Enter firstname' required disabled>
+                    <br>
+                    <p hidden></p>
+                    <br>
+                    <p>Last Name:</p>
+                    <input type="text"  placeholder="Enter lastname" id="lastNametxt" required disabled>
+                    <br>
+                    <p hidden></p>
+                    <br>
+                    <p>Email Address:</p>
+                    <input type="email"  id="username" placeholder="Enter emailId" required disabled>
+                    <br> 
+                    <p hidden></p>
+                    <br>
+                    <p>Password:</p>
+                    <input type="text" id="pwd" placeholder="password" required disabled>
+                    <br>
+                    <p hidden></p>
+                    <br>
+                    Gender:
+                    <input type="radio" name="gender"  id="male" value="male" disabled> 
                     <label>Male</label>
     
-                <input type="radio" name="gender"  id="female" value="female" disabled> 
+                    <input type="radio" name="gender"  id="female" value="female" disabled> 
                     <label>Female</label>
 
-                <input type="radio" name="gender" id="other" value="other" disabled>
+                    <input type="radio" name="gender" id="other" value="other" disabled>
                     <label>Other</label>    
-                <br>
-                <p hidden></p>
-                <br>
-                <p>Address:</p>
-                <input type="text" placeholder="address" id="address" disabled>
-                <br>
-                <p hidden></p>
-                <br>
-
-                <p hidden></p>
-                <br>
-              <button id="btnedit" type="button" onclick="editChanges();">Edit</button>
-              <button id="btnsave" type="button" onclick="saveChanges();">Save</button>
-
-
+                    <br>
+                    <p hidden></p>
+                    <br>
+                    <p>Address:</p>
+                    <input type="text" placeholder="address" id="address" disabled>
+                    <br>
+                    <p hidden></p>
+                    <br>
+                    <p hidden></p>
+                    <br>
+                    <button id="btnedit" type="button" onclick="editChanges();">Edit</button>
+                    <button id="btnsave" type="button" onclick="saveChanges();">Save</button>
+                    <br>
               
+                </form>
 
-              <br>
-              
-            </form>
-
-        </div>    
-
-
-
-
-
+            </div>    
     </body>
-
-
-
-
-
 </html>
