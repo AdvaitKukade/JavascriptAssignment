@@ -1,4 +1,4 @@
-alert("hii");
+
 function getUserId()
 {
     let sessionId= sessionStorage.getItem("sessionkey");
@@ -18,22 +18,31 @@ function getUserId()
     return userId;
 }
 
-(function showParticularTodo()
+function showParticularTodo()
 {
     let userid;
     let particularTodoCounter;
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
      userid=getUserId();
-     
+     let particularTodo;
     
-    particularTodoCounter=sessionStorage.getItem('particularTodoCount');
-    
+    particularTodo=sessionStorage.getItem('todoid');
+
+    for(let j=0;j<userArrayItem[userid].todoItem.length;j++)
+        {
+            if(userArrayItem[userid].todoItem[j].todoNo == particularTodo)
+            {
+                particularTodoCounter=j;
+                break;
+            }
+        }
+
     document.getElementById("itemName").value=userArrayItem[userid].todoItem[particularTodoCounter].todoTitle;
     document.getElementById("todoDueDate").value=userArrayItem[userid].todoItem[particularTodoCounter].todoDue;
     document.getElementById("toRemainder").value=userArrayItem[userid].todoItem[particularTodoCounter].remainder;
     document.getElementById("isPublic").value=userArrayItem[userid].todoItem[particularTodoCounter].public;
     document.getElementById("description").value=userArrayItem[userid].todoItem[particularTodoCounter].desc;
-})();
+}
 
 function saveItem()
 {

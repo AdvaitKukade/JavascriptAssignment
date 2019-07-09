@@ -102,7 +102,7 @@ function showItem()
         for (var counter = 0; counter<todoParticularUserArray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo("+todoParticularUserArray[counter].todoNo+");></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo('"+todoParticularUserArray[counter].todoNo+"');></td></tr>";
             list.innerHTML=row;
             let tableB=document.getElementById("tblBody");
             tableB.appendChild(list);
@@ -401,26 +401,11 @@ function filterByDate()
 function editTodo(todoId)
 {
     sessionStorage.setItem("todoid",todoId);
-    alert(todoId);
+    
  window.location = '../html/editTodo.html';
 }
        
-    // for(var counter=(checkedarray.length)-1;counter>=0;counter--)
-    // {
-    //     for(let j=0;j<userArrayItem[userId].todoItem.length;j++)
-    //     {
-    //         if(userArrayItem[userId].todoItem[j].todoNo == checkedarray[counter])
-    //         {
-    //             userArrayItem[userId].todoItem.splice(j,1);
-    //         }
-    //     }
-    // }
-    
-    /* particularTodoCounter=clikedarray-1;
-    alert(particularTodoCounter);
-    sessionStorage.setItem('particularTodoCount',particularTodoCounter);
- 
-} */
+  
 
 function goToAddPage()
 {
