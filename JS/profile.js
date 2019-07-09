@@ -8,6 +8,10 @@ function gotoHome(){
     window.location='../index.html';
 }
 
+function showTodo(){
+    window.location="../html/showTodaList.html";
+}
+
 function getUserId(){
 
     let sessionId= sessionStorage.getItem("sessionkey");

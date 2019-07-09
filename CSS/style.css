@@ -1,27 +1,22 @@
 body{
     margin:0px;
 }
-.forheader
-{
+.forheader{
     background-color:rgba(71, 11, 90, 0.986);
     height:30px;
     width:100%;
     margin:0px;
-
-
 }
 
-.belowheader
-{
+.belowheader{
     background-color:white;
     height:80px;
     width:100%;
     margin:0px;
     display: inline-block;
-
 }
-#uheader
-{
+
+#uheader{
     color:black;
 }
 
@@ -30,7 +25,6 @@ body{
     margin:0px;
     padding-top:20px;
     padding-left:70px;
-
 }
 
 .belowheader h4{
@@ -39,76 +33,58 @@ body{
     padding-left:70px;
     font-size:11px;
     margin: 0px;
-    
 }
 
-.maincontent
-{
+.maincontent{
     background-image: url(../images/Document.jpeg);
     height:340px;
     background-repeat: no-repeat;
     width: 100%;
     background-size:cover;
     padding-top:150px;
-
-
 }
 
- .maincontent h3{
+.maincontent h3{
     font-size: 55px;
     color:white;
     margin-top:0px;
     margin-left:70px;
     font-weight: bold;
     margin-bottom: 0px;
-
-
-    
-
 }
 
 .maincontent span{
 
     border-bottom: 1px solid white ;
     position:relative;
-
-
-
 }
+
 .maincontent p{
     margin-top:0px;
     padding-top:5px;
     width: 50%;
     color:white;
     margin-left:70px;
-    
 }
 
-.transparentback
-{
+.transparentback{
     background-color:rgba(0, 0, 0, 0.4);
-  
     width:70%;
     margin-left:100px;
     height:150px;
-
 }
 
-.forbutton 
-{
+.forbutton {
   margin:0px;
-    
-    padding-left:200px;
-
+  padding-left:200px;
 }
+
 .forbutton button{
     margin-left :10px;
     margin-top:20px;
     padding:5px;
     background-color:rgba(0, 0, 0, 0.3);
-    
     color:white;
-
 }
 
 .forbutton button:hover{
@@ -116,8 +92,7 @@ body{
     
 }
 
-.parentbox
-{
+.parentbox{
 
     width:100%;
     position:absolute;
@@ -125,74 +100,52 @@ body{
     padding-left:50px;
     padding-right:50px;
     box-sizing: border-box;
-
-    
 }
 
-.bottombox
-{
+.bottombox{
     background-color:black;
     height:130px;
     width:33.33%;
     margin:auto;
     color:white;
     box-sizing: border-box;
-    
     display:inline-block;
-
 }
 
-
-
-.bottombox1
-{
+.bottombox1{
     float:left;
     background-color:rgba(11, 170, 243, 0.8);
-    
-    
-     
 }
 
-.bottombox2
-{
+.bottombox2{
     float:left;
     background-color:rgba(252, 202, 64, 0.9);
-    
-
-
 }
 
-.bottombox3
-{
+.bottombox3{
     float:right;
     background-color:rgba(214, 8, 8, 0.8);
-    
-
 }
 
-.whitebottom
-{
+.whitebottom{
     background-color: white;
     width:100%;
     height:100px;
 }
 
-.navigationbar
-{
+.navigationbar{
     
     margin-right:70px;
     float: right;
     display:inline-block;
     padding-top:10px;
     box-sizing: border-box;
-    
 }
 
 .navigationbar li{
     list-style-type: none;
     display: inline;
     padding:10px;
-    
 }
 
 .navigationbar a{
@@ -201,14 +154,12 @@ body{
     color:black;
 }
 
-.uni
-{
+.uni{
     margin:0px;
     width:30%;
     display:inline-block;
 }
 
-#showTodo
-{
+#showTodo{
     display: none;
 }
