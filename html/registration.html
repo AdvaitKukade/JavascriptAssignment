@@ -6,7 +6,7 @@
             <link rel="stylesheet" href="../CSS/normalise.css">
             <link rel="stylesheet" href="../CSS/registration.css">
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
-            <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+            
             <script src="../JS/registration.js"></script>
     </head>
 
@@ -40,7 +40,7 @@
 
               First Name:
               <br>
-              <input type="text" id="firstNametxt" placeholder='Enter firstname' required onfocusout="nameValidation();">
+              <input type="text" id="firstNametxt" placeholder='Enter firstname' required >
               <br>
               <p id="error_firstName" class="errorMsg"></p>
               <br>
@@ -48,7 +48,7 @@
               
               Last Name:
               <br>
-              <input type="text"  placeholder="Enter lastname" id="lastNametxt" required onfocusout="nameValidation();">
+              <input type="text"  placeholder="Enter lastname" id="lastNametxt" required >
               <br>
               <p id="error_lastName" class="errorMsg"></p>
               <br>
@@ -56,21 +56,21 @@
               
               Email Address:
               <br>
-              <input type="email"  id="username" placeholder="Enter emailId" required onfocusout="nameValidation();">
+              <input type="email"  id="username" placeholder="Enter emailId" required >
               <br>
               <p id="error_email" class="errorMsg"></p>
               <br>
               
               Password:
               <br>
-             <input type="password" id="pwd" placeholder="password" required onfocusout="nameValidation();"> 
+             <input type="password" id="pwd" placeholder="password" required > 
              <br>
               <p id="error_pass" class="errorMsg"></p>
               <br>
               
               Confirm Password:
               <br>
-              <input type="password" id="repwd" placeholder="Re-enter password" required onfocusout="nameValidation();">
+              <input type="password" id="repwd" placeholder="Re-enter password" required >
               <br>
               <p id="error_confirmPass" class="errorMsg"></p>
               <br>
@@ -102,7 +102,7 @@
                 
                 
                 
-              <button type="button" id="regiBtn" onclick="addUser();">Register</button>
+              <button type="button" id="regiBtn" onclick="nameValidation();">Register</button>
               <button type="button" id="loginBtn" onclick="gotoLoginPage();">Login</button>
 
               <br>

@@ -1,53 +1,18 @@
-function gotoProfile()
-{
+function gotoProfile(){
     window.location = '../html/profile.html';
 }
 
-function logout()
-{
+function logout(){
     sessionStorage.clear();
     window.location='../html/login.html';
 }
 
-function gotoHome()
-{
+function gotoHome(){
     var home=sessionStorage.getItem("homeSession");
     window.location='../index.html';
-//home.style.display="none";
 }
 
-
-// function display()
-// {
-//     let sessionId= sessionStorage.getItem("sessionkey");
-//     let userArrayItem=JSON.parse(localStorage.getItem('user'));
-//     let todoParticularUserArray=[];
-//     let index;
-//     var userTable=document.getElementById("tblBody");
-
-//     for(index=0;index<userArrayItem.length;index++)
-
-//     {
-//         if((userArrayItem[index].emailAddr)==sessionId)
-//         {
-//             todoParticularUserArray=userArrayItem[index].todoItem;
-            
-            
-//         }   
-//     }
-
-//     if(todoParticularUserArray.length===0)
-//     {
-//         let newEle=document.createElement("tr");
-//         var node=document.createTextNode("no todos");
-//         newEle.appendChild(node);
-//         userTable.appendChild("tr"); 
-//     }
-
-// }
-
-function getTOdoOfParticularUser()
-{
+function getTOdoOfParticularUser(){
     let sessionId= sessionStorage.getItem("sessionkey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
     let todoParticularUserArray=[];
@@ -64,8 +29,7 @@ function getTOdoOfParticularUser()
     return todoParticularUserArray;
 }
 
-function getUserId()
-{
+function getUserId(){
 
     let sessionId= sessionStorage.getItem("sessionkey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
@@ -83,8 +47,7 @@ function getUserId()
     return userId;
 }
 
-function showItem()
-{
+function showItem(){
     var userTable = document.getElementById("tblBody");
     let todoParticularUserArray=getTOdoOfParticularUser();
     var userid=getUserId();
@@ -94,24 +57,32 @@ function showItem()
         let newEle=document.createElement("tr");
         var node=document.createTextNode("no todos");
         newEle.appendChild(node);
-        //userTable.appendChild("ne"); 
+        userTable.appendChild(newEle); 
     }
 
     else
     {
-        for (var counter = 0; counter<todoParticularUserArray.length;counter++) 
-        {
-            var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo('"+todoParticularUserArray[counter].todoNo+"');></td></tr>";
-            list.innerHTML=row;
-            let tableB=document.getElementById("tblBody");
-            tableB.appendChild(list);
-        }
+            let a=document.getElementById("tblBody");
+            let deleteChild=a.lastElementChild;
+            
+            while(deleteChild)
+            {
+                a.removeChild(deleteChild);
+                deleteChild=a.lastElementChild;
+            }   
+            
+            for (var counter = 0; counter<todoParticularUserArray.length;counter++) 
+            {
+                var list=document.createElement("tr");
+                var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo('"+todoParticularUserArray[counter].todoNo+"');></td></tr>";
+                list.innerHTML=row;
+                let tableB=document.getElementById("tblBody");
+                tableB.appendChild(list);
+            }
     }     
 }
 
-function changestatus()
-{
+function changestatus(){
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
     let sessionId= sessionStorage.getItem("sessionkey");
     let deleteArr=document.getElementsByName("deleteTodo");
@@ -150,11 +121,10 @@ function changestatus()
     
     var stringifyUser=JSON.stringify(userArrayItem);
     localStorage.setItem('user',stringifyUser);
-    window.location.reload();
+    showItem();
 }
 
-function deleteTodo()
-{
+function deleteTodo(){
     let sessionId= sessionStorage.getItem("sessionkey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
     let deleteArr=document.getElementsByName("deleteTodo");
@@ -193,7 +163,8 @@ function deleteTodo()
 
     var stringifyUser=JSON.stringify(userArrayItem);
     localStorage.setItem('user',stringifyUser);
-    window.location.reload();
+    
+    showItem();
 }
 
 function filterByCat()
@@ -221,8 +192,9 @@ function filterByCat()
         {
             let newEle=document.createElement("tr");
             var node=document.createTextNode("no todos");
+        
             newEle.appendChild(node);
-            tbody.appendChild("tr"); 
+            userTable.appendChild(newEle); 
         }
         else
         {
@@ -238,7 +210,7 @@ function filterByCat()
             for (var counter = 0; counter<todoParticularUserArray.length;counter++) 
             {
                 var list=document.createElement("tr");
-                var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
+                var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo('"+todoParticularUserArray[counter].todoNo+"');></td></tr>";
                 list.innerHTML=row;
                 let tabBody=document.getElementById("tblBody");
                 tabBody.appendChild(list);
@@ -259,15 +231,27 @@ function filterByCat()
             a.removeChild(deleteChild);
             deleteChild=a.lastElementChild;
         }      
-                
+
+        if(filteredarray.length===0)
+        {
+            let newEle=document.createElement("tr");
+            var node=document.createTextNode("no todos");
+        
+            newEle.appendChild(node);
+            userTable.appendChild(newEle); 
+        }
+        else
+        {
+
         for (var counter = 0; counter<filteredarray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td><input type=checkbox name=isDoneTodo id=check-"+counter+" onclick=changestatus();></input></td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td><input type=checkbox name=isDoneTodo id=check-"+counter+" onclick=changestatus();></input></td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo('"+filteredarray[counter].todoNo+"');></td></tr>";
             list.innerHTML=row;
             let tblBody=document.getElementById("tblBody");
             tblBody.appendChild(list);
         }
+    }
     }
     if(document.getElementById("listForCategory").value==="Office")
     {
@@ -282,16 +266,27 @@ function filterByCat()
             a.removeChild(deleteChild);
             deleteChild=a.lastElementChild;
         }      
+        if(filteredarray.length===0)
+        {
+            let newEle=document.createElement("tr");
+            var node=document.createTextNode("no todos");
         
+            newEle.appendChild(node);
+            userTable.appendChild(newEle); 
+        }
+
+        else{
+
         for (var counter = 0; counter<filteredarray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo('"+filteredarray[counter].todoNo+"');></td></tr>";
             list.innerHTML=row;
             let tableHead=document.getElementById("tblBody");
             tableHead.appendChild(list);
         
         }
+    }
     }
     
     if(document.getElementById("listForCategory").value==="Personal")
@@ -306,17 +301,29 @@ function filterByCat()
         {
             a.removeChild(deleteChild);
             deleteChild=a.lastElementChild;
-        }      
-                
+        } 
+        
+        if(filteredarray.length===0)
+        {
+            let newEle=document.createElement("tr");
+            var node=document.createTextNode("no todos");
+        
+            newEle.appendChild(node);
+            userTable.appendChild(newEle); 
+        }
+         
+        else{
         for (var counter = 0; counter<filteredarray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit  name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit  name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo('"+filteredarray[counter].todoNo+"');></td></tr>";
             list.innerHTML=row;
             let tableHead=document.getElementById("tblBody");
             tableHead.appendChild(list);
         }
+        }
     }
+
 }
 
 function filterByName()
@@ -347,16 +354,28 @@ function filterByName()
     {
         a.removeChild(deleteChild);
         deleteChild=a.lastElementChild;
-    }      
-                
+    }
+    
+    if(titleArray.length===0)
+    {
+        let newEle=document.createElement("tr");
+        var node=document.createTextNode("no todos");
+    
+        newEle.appendChild(node);
+        userTable.appendChild(newEle); 
+    }
+     
+    else
+    {
     for (var counter = 0; counter<titleArray.length;counter++) 
     {
         var list=document.createElement("tr");
-        var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+titleArray[counter].todoNo+"></input></td><td>"+ titleArray[counter].todoTitle + "</td><td>" + titleArray[counter].todoCategory + "</td><td>"+titleArray[counter].todoDue+"</td><td>" + titleArray[counter].remainder+"</td><td>" +titleArray[counter].public+"</td><td>" + titleArray[counter].desc+"</td><td>"+titleArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+titleArray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
+        var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+titleArray[counter].todoNo+"></input></td><td>"+ titleArray[counter].todoTitle + "</td><td>" + titleArray[counter].todoCategory + "</td><td>"+titleArray[counter].todoDue+"</td><td>" + titleArray[counter].remainder+"</td><td>" +titleArray[counter].public+"</td><td>" + titleArray[counter].desc+"</td><td>"+titleArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+titleArray[counter].todoNo+" onclick=editTodo('"+filteredarray[counter].todoNo+"');></td></tr>";
         list.innerHTML=row;
         let tableHead=document.getElementById("tblBody");
         tableHead.appendChild(list);
     }
+}
 }
 
 function filterByDate()
@@ -367,16 +386,13 @@ function filterByDate()
     var userTable=document.getElementById("tblBody");
     let todoParticularUserArray=getTOdoOfParticularUser();
 
-    if(todoParticularUserArray.length===0)
+    if(endDateTodo<startDateTodo)
     {
-        let newEle=document.createElement("tr");
-        var node=document.createTextNode("no todos");
-        newEle.appendChild(node);
-        userTable.appendChild(newEle); 
+            alert("end date should be greater than start date");
+            return false;
     }
-    else
-    {
-        var filteredarray=partularArray.filter(function(todoitem){
+    
+    var filteredarray=partularArray.filter(function(todoitem){
         return( new Date(todoitem.todoDue).getTime()>=startDateTodo && new Date(todoitem.todoDue).getTime()<=endDateTodo)})
     
         let a=document.getElementById("tblBody");
@@ -386,18 +402,30 @@ function filterByDate()
         {
             a.removeChild(deleteChild);
             deleteChild=a.lastElementChild;
-        }  
+        } 
+        
+        
+    if(todoParticularUserArray.length===0)
+    {
+        let newEle=document.createElement("tr");
+        var node=document.createTextNode("no todos");
+        newEle.appendChild(node);
+        userTable.appendChild(newEle); 
+    }
+
+    else{
         
         for (var counter = 0; counter<filteredarray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo("+filteredarray[counter].todoNo+");></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo('"+filteredarray[counter].todoNo+"');></td></tr>";
             list.innerHTML=row;
             let tableHead=document.getElementById("tblBody");
             tableHead.appendChild(list);
         }  
     }
 }
+
 function editTodo(todoId)
 {
     sessionStorage.setItem("todoid",todoId);
@@ -405,8 +433,6 @@ function editTodo(todoId)
  window.location = '../html/editTodo.html';
 }
        
-  
-
 function goToAddPage()
 {
     window.location = '../html/todo.html';

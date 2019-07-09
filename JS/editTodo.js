@@ -1,6 +1,4 @@
-
-function getUserId()
-{
+function getUserId(){
     let sessionId= sessionStorage.getItem("sessionkey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
     let index;
@@ -14,17 +12,15 @@ function getUserId()
             break;
         }   
     }
-
     return userId;
 }
 
-function showParticularTodo()
-{
+function showParticularTodo(){
     let userid;
     let particularTodoCounter;
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
-     userid=getUserId();
-     let particularTodo;
+    userid=getUserId();
+    let particularTodo;
     
     particularTodo=sessionStorage.getItem('todoid');
 
@@ -44,8 +40,7 @@ function showParticularTodo()
     document.getElementById("description").value=userArrayItem[userid].todoItem[particularTodoCounter].desc;
 }
 
-function saveItem()
-{
+function saveItem(){
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
     let userid=getUserId();
     var particularTodoCounter=sessionStorage.getItem('particularTodoCount');
@@ -55,6 +50,12 @@ function saveItem()
     var setRemainder=document.getElementById("toRemainder").value;
     var isPublic=document.querySelector('input[name="ispublic"]:checked').value;
     var todoDescription = document.getElementById("description").value;
+
+    if(setRemainder<dueDate)
+    {
+        alert("End date should be grater than start date");
+        return false;
+    }
     
     userArrayItem[userid].todoItem[particularTodoCounter].todoTitle=todoTitleID;
     userArrayItem[userid].todoItem[particularTodoCounter].todoCategory=categoryId;
@@ -67,25 +68,21 @@ function saveItem()
     localStorage.setItem('user',stringifyUser);
 }
 
-function goBack()
-{
+function goBack(){
     sessionStorage.removeItem("particularTodoCount");
     window.location = '../html/showTodaList.html';
 }
 
-function gotoProfile()
-{
+function gotoProfile(){
     window.location = '../html/profile.html';
 }
 
-function logout()
-{
+function logout(){
     sessionStorage.clear();
     window.location='../html/login.html';
 }
 
-function gotoHome()
-{
+function gotoHome(){
     var home=sessionStorage.getItem("homeSession");
     window.location='../index.html';
     home.style.display="none";

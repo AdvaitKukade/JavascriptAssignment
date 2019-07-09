@@ -1,20 +1,14 @@
-function logout()
-{
+function logout(){
     sessionStorage.clear();
     window.location='../html/login.html';
 }
 
-function gotoHome()
-{
+function gotoHome(){
     var home=sessionStorage.getItem("homeSession");
     window.location='../index.html';
-   
 }
 
-
-
-function getUserId()
-{
+function getUserId(){
 
     let sessionId= sessionStorage.getItem("sessionkey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
@@ -22,32 +16,22 @@ function getUserId()
     let userId;
 
     for(index=0;index<userArrayItem.length;index++)
-
     {
         if((userArrayItem[index].emailAddr)==sessionId)
         {
             userId=index;
-            
             break;
         }   
     }
-
     return userId;
-
 }
 
-
-function showInfo()
-{
+function showInfo(){
     
     let sessionId= sessionStorage.getItem("sessionkey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
     let userid=getUserId();
-    let getPass=userArrayItem[userid].pass;
-    let decryptedPass=window.atob(getPass);
-
-   
-
+    
     if((userArrayItem[userid].gen) == "male")
     {
         document.getElementsByName("gender")[0].checked=true;
@@ -55,39 +39,25 @@ function showInfo()
     else if((userArrayItem[userid].gen)== "female")
     {
         document.getElementsByName("gender")[1].checked=true;
-
     }
     else{
         document.getElementsByName("gender")[2].checked=true;
     }
-
-
-    
     
     document.getElementById("imgId").src = userArrayItem[userid].picture;
     document.getElementById("firstNametxt").value=userArrayItem[userid].firstName;
     document.getElementById("lastNametxt").value=userArrayItem[userid].lastName;
     document.getElementById("username").value=userArrayItem[userid].emailAddr;
-    document.getElementById("pwd").value=decryptedPass;
+    document.getElementById("pwd").value=userArrayItem[userid].pass;
     document.getElementById("address").value=userArrayItem[userid].addres;
-
 }
 
-
-function addTodo()
-{
+function addTodo(){
     window.location="../html/todo.html";
 }
 
+function editChanges(){
 
-
-
-
-
-
-
-function editChanges()
-{
     document.getElementById("firstNametxt").disabled=false;
     document.getElementById("lastNametxt").disabled=false;
     document.getElementById("username").disabled=false;
@@ -99,13 +69,9 @@ function editChanges()
     document.getElementById("profileImg").disabled=false;
     document.getElementById("btnedit").style.display="none";
     document.getElementById("btnsave").style.display="inline";
-
-
-
 }
 
-function saveChanges()
-{
+function saveChanges(){
 
     let sessionId= sessionStorage.getItem("sessionkey");
     var getImg=sessionStorage.getItem("profileSessionKey");
@@ -136,18 +102,13 @@ function saveChanges()
             return false;
         }
     }
-
-
+    
     if(!(passwd.match(passRex)))
     {
         window.confirm("password should contain atleast 1 Capital letter, atleast 1 small letter, special symbol and range should between 6 to 15");
         return false;
     }
-
-
-
     
-
     userArrayItem[userid].firstName=fname;
     userArrayItem[userid].lastName=lname;
     userArrayItem[userid].emailAddr=email;
@@ -158,13 +119,20 @@ function saveChanges()
 
     var stringifyUser=JSON.stringify(userArrayItem);
     localStorage.setItem('user',stringifyUser);
+    document.getElementById("firstNametxt").disabled=true;
+    document.getElementById("lastNametxt").disabled=true;
+    document.getElementById("username").disabled=true;
+    document.getElementById("pwd").disabled=true;
+    document.getElementById("address").disabled=true;
+    document.getElementById("male").disabled=true;
+    document.getElementById("female").disabled=true;
+    document.getElementById("other").disabled=true;
+    document.getElementById("profileImg").disabled=true;
+    document.getElementById("btnedit").style.display="inline";
+    document.getElementById("btnsave").style.display="none";
+    document.getElementById("saved").textContent="saved successfully!"
     showInfo();
-
-    //window.location.reload();
-
 }
-
-
 
 function convertProfileImage()
 {

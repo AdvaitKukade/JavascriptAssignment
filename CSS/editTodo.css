@@ -32,7 +32,7 @@ body{
     line-height: 26px;
 }
 
-.toDoForm{
+#toDoForm{
 margin-top:50px;
 width:650px;
 margin:0px auto;

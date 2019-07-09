@@ -1,15 +1,13 @@
-function gotoHomePage()
-{
+function gotoHomePage(){
     window.location ='../index.html';
 }
 
-function gotoLoginPage()
-{
+function gotoLoginPage(){
     window.location='../html/login.html';
 }
 
-function nameValidation()
-{
+function nameValidation(){
+
     var fname=document.getElementById("firstNametxt").value;
     var lname=document.getElementById("lastNametxt").value;
     var email=document.getElementById("username").value;
@@ -65,10 +63,8 @@ function nameValidation()
     {
         passError.innerHTML="";
     }
-        
-    
 
-   if(!(repass===passwd))
+    if(!(repass===passwd))
     {
         rePassError.textContent="pasword and confirm password should be same";
         return false;
@@ -76,10 +72,11 @@ function nameValidation()
     else{
         rePassError.innerHTML="";
     }
+    
+    addUser();
 }
 
-function convertProfileImage()
-{
+function convertProfileImage(){
     let image = document.getElementById("profileImg").files[0];
 
     getimgbase64(image);
@@ -100,8 +97,7 @@ function convertProfileImage()
     }
 }
 
-function addUser()
-{   
+function addUser(){   
     var userArray=new Array();
     var passwd=document.getElementById("pwd").value;
     let encryptedPass;

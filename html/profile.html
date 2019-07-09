@@ -20,7 +20,7 @@
             <div class="container">
                 <form name="regiForm" class="form_class">
                     <div class="profileClass">
-                            <!-- <img id="imgId" src="https://imgsv.imaging.nikon.com/lineup/dslr/df/img/sample/img_01.jpg" height="100px" width="100px"> -->
+                            
                             <img id="imgId" src="../images/profile.png" height="100px" width="100px">
                             <br>
                             <input type="file" id="profileImg" onchange="convertProfileImage();" disabled>
@@ -42,7 +42,7 @@
                     <p hidden></p>
                     <br>
                     <p>Password:</p>
-                    <input type="text" id="pwd" placeholder="password" required disabled>
+                    <input type="password" id="pwd" placeholder="password" required disabled>
                     <br>
                     <p hidden></p>
                     <br>
@@ -65,6 +65,7 @@
                     <br>
                     <p hidden></p>
                     <br>
+                    <p id="saved"></p>
                     <button id="btnedit" type="button" onclick="editChanges();">Edit</button>
                     <button id="btnsave" type="button" onclick="saveChanges();">Save</button>
                     <br>

@@ -208,8 +208,7 @@ body{
     display:inline-block;
 }
 
-.fa-angle-down
+#showTodo
 {
-    paddd
-    
+    display: none;
 }

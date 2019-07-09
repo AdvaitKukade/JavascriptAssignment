@@ -4,25 +4,19 @@
             <meta charset="UTF-8">
             <link rel="stylesheet" href="../CSS/reset.css">
             <link rel="stylesheet" href="../CSS/normalise.css">
-            <link rel="stylesheet" href="../CSS/todo.css">
+            <link rel="stylesheet" href="../CSS/editTodo.css">
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
             <script src="../JS/editTodo.js"></script>
     </head>
 
-
-        <body onload="showParticularTodo();">
-
-                <div class=header>
-                        <nav class="navigationbar">
-                                <a onclick="gotoProfile();">View My Profile</a>
-                                <a onclick="logout();"> LogOut</a>
-                        </nav>
-                </div>
-
-        
-
-
-          <div class="toDoForm">
+    <body onload="showParticularTodo();">
+        <div class=header>
+                <nav class="navigationbar">
+                        <a onclick="gotoProfile();">View My Profile</a>
+                        <a onclick="logout();"> LogOut</a>
+                </nav>
+        </div>
+        <form id="toDoForm">
             
                 ToDo Name:
                 <input type="text" placeholder="Todo Name" id="itemName">
@@ -57,6 +51,6 @@
 
                 <input type="button" value="Save" id="saveBtn" onclick="saveItem();">
                 <input type="button" value="GO Back" onclick="goBack();">
-           </div>
+        </form>
         </body>
 </html>    

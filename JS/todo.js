@@ -1,4 +1,3 @@
-
 function makeid(length) {
    var result           = '';
    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -9,10 +8,7 @@ function makeid(length) {
    return result;
 }
 
-
-
-function addItem()
-{
+function addItem(){
     var todoID=makeid(3);
     var todoTitleID=document.getElementById("itemName").value;
     var categoryId=document.querySelector('input[name="cate"]:checked').value;
@@ -24,11 +20,6 @@ function addItem()
     var userArrayItem=new Array();
     let index;
     var todoObj=new Object();
-
-
-
-
-
 
     todoObj={
         "todoNo":todoID,
@@ -50,50 +41,35 @@ function addItem()
         if((userArrayItem[index].emailAddr)==sessionId)
         {
             userArrayItem[index].todoItem.push(todoObj);
-
             var stringfyuserArrayItem=JSON.stringify(userArrayItem);
             localStorage.setItem('user',stringfyuserArrayItem);
         }   
-
-
-
     }
 
-    window.location.reload();
+    document.getElementById("toDoForm").reset();
+
+
+
 
 }
 
 
-function callShowItemFile()
-{
+function callShowItemFile(){
     window.location = '../html/showTodaList.html';
 
 }
 
-
-
-function gotoProfile()
-{
+function gotoProfile(){
 
     window.location = '../html/profile.html';
-
-
 }
 
-
-function logout()
-{
+function logout(){
     sessionStorage.clear();
     window.location='../html/login.html';
 }
 
-function gotoHome()
-{
+function gotoHome(){
     var home=sessionStorage.getItem("homeSession");
-
-    
     window.location='../index.html';
-   // home.style.display="none";
-
-
 }    
