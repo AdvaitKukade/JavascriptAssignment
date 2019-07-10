@@ -4,6 +4,8 @@ function checkSession()
     if(!(seesionValue===null))
     {
         document.getElementById("showTodo").style.display="inline";
+        document.getElementById("signBtn").style.display="none";
+        document.getElementById("signupBtn").style.display="none";
     }
 }
 

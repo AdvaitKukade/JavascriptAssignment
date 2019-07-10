@@ -334,13 +334,13 @@ function filterByName()
     let a=document.getElementById("tblBody");
     let deleteChild=a.lastElementChild;
     
-    if(particularTodo.length===0)
-    {
-        let newEle=document.createElement("tr");
-        var node=document.createTextNode("no todos");
-        newEle.appendChild(node);
-        userTable.appendChild("tr"); 
-    }
+    // if(particularTodo.length===0)
+    // {
+    //     let newEle=document.createElement("tr");
+    //     var node=document.createTextNode("no todos");
+    //     newEle.appendChild(node);
+    //     userTable.appendChild("tr"); 
+    // }
     
     for(var counter=0;counter<particularTodo.length;counter++)
     {
@@ -370,7 +370,7 @@ function filterByName()
     for (var counter = 0; counter<titleArray.length;counter++) 
     {
         var list=document.createElement("tr");
-        var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+titleArray[counter].todoNo+"></input></td><td>"+ titleArray[counter].todoTitle + "</td><td>" + titleArray[counter].todoCategory + "</td><td>"+titleArray[counter].todoDue+"</td><td>" + titleArray[counter].remainder+"</td><td>" +titleArray[counter].public+"</td><td>" + titleArray[counter].desc+"</td><td>"+titleArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+titleArray[counter].todoNo+" onclick=editTodo('"+filteredarray[counter].todoNo+"');></td></tr>";
+        var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+titleArray[counter].todoNo+"></input></td><td>"+ titleArray[counter].todoTitle + "</td><td>" + titleArray[counter].todoCategory + "</td><td>"+titleArray[counter].todoDue+"</td><td>" + titleArray[counter].remainder+"</td><td>" +titleArray[counter].public+"</td><td>" + titleArray[counter].desc+"</td><td>"+titleArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+titleArray[counter].todoNo+" onclick=editTodo('"+titleArray[counter].todoNo+"');></td></tr>";
         list.innerHTML=row;
         let tableHead=document.getElementById("tblBody");
         tableHead.appendChild(list);

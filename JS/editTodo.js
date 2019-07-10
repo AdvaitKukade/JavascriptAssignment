@@ -43,7 +43,7 @@ function showParticularTodo(){
 function saveItem(){
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
     let userid=getUserId();
-    var particularTodoCounter=sessionStorage.getItem('particularTodoCount');
+    var particularTodoCounter;
     var todoTitleID=document.getElementById("itemName").value;
     var categoryId=document.querySelector('input[name="cate"]:checked').value;
     var dueDate=document.getElementById("todoDueDate").value;
@@ -51,11 +51,27 @@ function saveItem(){
     var isPublic=document.querySelector('input[name="ispublic"]:checked').value;
     var todoDescription = document.getElementById("description").value;
 
-    if(setRemainder<dueDate)
+    let startDate=new Date(dueDate);
+    let endDate=new Date(setRemainder);
+
+    if(endDate<startDate)
     {
         alert("End date should be grater than start date");
         return false;
     }
+
+    let particularTodo;
+    
+    particularTodo=sessionStorage.getItem('todoid');
+
+    for(let j=0;j<userArrayItem[userid].todoItem.length;j++)
+        {
+            if(userArrayItem[userid].todoItem[j].todoNo == particularTodo)
+            {
+                particularTodoCounter=j;
+                break;
+            }
+        }
     
     userArrayItem[userid].todoItem[particularTodoCounter].todoTitle=todoTitleID;
     userArrayItem[userid].todoItem[particularTodoCounter].todoCategory=categoryId;
@@ -66,6 +82,9 @@ function saveItem(){
     
     var stringifyUser=JSON.stringify(userArrayItem);
     localStorage.setItem('user',stringifyUser);
+
+    document.getElementById("toDoForm").reset();
+
 }
 
 function goBack(){
