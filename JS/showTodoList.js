@@ -334,13 +334,7 @@ function filterByName()
     let a=document.getElementById("tblBody");
     let deleteChild=a.lastElementChild;
     
-    // if(particularTodo.length===0)
-    // {
-    //     let newEle=document.createElement("tr");
-    //     var node=document.createTextNode("no todos");
-    //     newEle.appendChild(node);
-    //     userTable.appendChild("tr"); 
-    // }
+    
     
     for(var counter=0;counter<particularTodo.length;counter++)
     {
