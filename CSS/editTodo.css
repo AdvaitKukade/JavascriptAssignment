@@ -41,5 +41,17 @@ border:1px purple solid;
 font-family: 'Montserrat', sans-serif;
 }
 
+#saveBtn
+{
+    background-color: purple;
+    color:white;
+}
+
+#goback
+{
+    background-color: purple;
+    color:white;
+}
+
 
 

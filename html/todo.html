@@ -9,7 +9,7 @@
             <script src="../JS/todo.js"></script>
     </head>
 
-    <body>
+    <body onload="checkSession();">
 
         <div class=header>
             <nav class="navigationbar">
@@ -49,7 +49,7 @@
             <br>
             <br>
             Make Todo Public:
-            <input type="radio" id="isPublic" value="clicked" name="ispublic" >
+            <input type="radio" id="isPublic" value="yes" name="ispublic" >
             <br>
             <br>
             Add Todo Description:
@@ -59,7 +59,7 @@
             <br>
 
             <input type="button" value="Add" id="addBtn" onclick="addItem();">
-            <input type="button" value="show my list" onclick="callShowItemFile();">
+            <input type="button" value="show my list" id="show" onclick="callShowItemFile();">
 
 
 

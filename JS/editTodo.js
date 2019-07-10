@@ -1,3 +1,12 @@
+function checkSession(){
+    var seesionValue=sessionStorage.getItem("sessionkey");
+    if(seesionValue===null)
+    {
+        window.location='../index.html';
+
+    }
+}
+
 function getUserId(){
     let sessionId= sessionStorage.getItem("sessionkey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));
@@ -16,6 +25,7 @@ function getUserId(){
 }
 
 function showParticularTodo(){
+    checkSession();
     let userid;
     let particularTodoCounter;
     let userArrayItem=JSON.parse(localStorage.getItem('user'));

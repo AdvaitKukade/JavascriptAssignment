@@ -1,3 +1,12 @@
+function checkSession(){
+    var seesionValue=sessionStorage.getItem("sessionkey");
+    if(seesionValue===null)
+    {
+        window.location='../index.html';
+
+    }
+}
+
 function logout(){
     sessionStorage.clear();
     window.location='../html/login.html';
@@ -31,6 +40,8 @@ function getUserId(){
 }
 
 function showInfo(){
+
+    checkSession();
     
     let sessionId= sessionStorage.getItem("sessionkey");
     let userArrayItem=JSON.parse(localStorage.getItem('user'));

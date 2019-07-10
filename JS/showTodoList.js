@@ -1,3 +1,12 @@
+function checkSession(){
+    var seesionValue=sessionStorage.getItem("sessionkey");
+    if(seesionValue===null)
+    {
+        window.location='../index.html';
+
+    }
+}
+
 function gotoProfile(){
     window.location = '../html/profile.html';
 }
@@ -48,11 +57,16 @@ function getUserId(){
 }
 
 function showItem(){
+
+    checkSession();
     var userTable = document.getElementById("tblBody");
     let todoParticularUserArray=getTOdoOfParticularUser();
     var userid=getUserId();
+
+    var a=document.getElementById("tblBody");
+    var deleteChild=a.lastElementChild;
     
-    if(todoParticularUserArray.length===0)
+    if(a.length===0)
     {
         let newEle=document.createElement("tr");
         var node=document.createTextNode("no todos");
@@ -62,22 +76,31 @@ function showItem(){
 
     else
     {
-            let a=document.getElementById("tblBody");
-            let deleteChild=a.lastElementChild;
             
             while(deleteChild)
             {
                 a.removeChild(deleteChild);
                 deleteChild=a.lastElementChild;
-            }   
+            }
             
+            if(todoParticularUserArray.length===0)
+            {
+                let newEle=document.createElement("tr");
+                var node=document.createTextNode("no todos");
+                newEle.appendChild(node);
+                userTable.appendChild(newEle); 
+            }
+
+            else
+            {
             for (var counter = 0; counter<todoParticularUserArray.length;counter++) 
             {
                 var list=document.createElement("tr");
-                var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo('"+todoParticularUserArray[counter].todoNo+"');></td></tr>";
+                var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit class=btnColor  id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo('"+todoParticularUserArray[counter].todoNo+"');></td></tr>";
                 list.innerHTML=row;
                 let tableB=document.getElementById("tblBody");
                 tableB.appendChild(list);
+            }
             }
     }     
 }
@@ -163,8 +186,9 @@ function deleteTodo(){
 
     var stringifyUser=JSON.stringify(userArrayItem);
     localStorage.setItem('user',stringifyUser);
-    
     showItem();
+    
+
 }
 
 function filterByCat()
@@ -175,6 +199,8 @@ function filterByCat()
     let index;
     let particularIndex;
     var tbody=document.getElementById("tblBody");
+    var userTable = document.getElementById("tblBody");
+
 
     for(index=0;index<userArrayItem.length;index++)
     {
@@ -246,7 +272,7 @@ function filterByCat()
         for (var counter = 0; counter<filteredarray.length;counter++) 
         {
             var list=document.createElement("tr");
-            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td><input type=checkbox name=isDoneTodo id=check-"+counter+" onclick=changestatus();></input></td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo('"+filteredarray[counter].todoNo+"');></td></tr>";
+            var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+filteredarray[counter].todoNo+"></input></td><td>"+ filteredarray[counter].todoTitle + "</td><td>" + filteredarray[counter].todoCategory + "</td><td>"+filteredarray[counter].todoDue+"</td><td>" + filteredarray[counter].remainder+"</td><td>" +filteredarray[counter].public+"</td><td>" + filteredarray[counter].desc+"</td><td>"+filteredarray[counter].status+"</td><td> <input type=button value=Edit name=editArray id=button-"+filteredarray[counter].todoNo+" onclick=editTodo('"+filteredarray[counter].todoNo+"');></td></tr>";
             list.innerHTML=row;
             let tblBody=document.getElementById("tblBody");
             tblBody.appendChild(list);
@@ -333,6 +359,8 @@ function filterByName()
     var titleArray = [];
     let a=document.getElementById("tblBody");
     let deleteChild=a.lastElementChild;
+    var userTable = document.getElementById("tblBody");
+
     
     
     
@@ -399,7 +427,7 @@ function filterByDate()
         } 
         
         
-    if(todoParticularUserArray.length===0)
+    if(filteredarray.length===0)
     {
         let newEle=document.createElement("tr");
         var node=document.createTextNode("no todos");

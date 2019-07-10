@@ -1,3 +1,12 @@
+function checkSession(){
+    var seesionValue=sessionStorage.getItem("sessionkey");
+    if(seesionValue===null)
+    {
+        window.location='../index.html';
+
+    }
+}
+
 function gotoHomePage(){
     window.location ='../index.html';
 }

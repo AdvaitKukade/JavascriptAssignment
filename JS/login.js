@@ -1,3 +1,12 @@
+function checkSession(){
+    var seesionValue=sessionStorage.getItem("sessionkey");
+    if(seesionValue===null)
+    {
+        window.location='../index.html';
+
+    }
+}
+
 function checkValidUser(){
     
     var email=document.getElementById("emailId").value;
