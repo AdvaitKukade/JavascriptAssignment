@@ -220,7 +220,7 @@ function filterByCat()
     {
         if(todoParticularUserArray.length===0)
         {
-            document.getElementById("theadId").style.display="none";
+            
 
             let newEle=document.createElement("tr");
             var node=document.createTextNode("no todos");
@@ -241,6 +241,8 @@ function filterByCat()
             
             for (var counter = 0; counter<todoParticularUserArray.length;counter++) 
             {
+                
+
                 var list=document.createElement("tr");
                 var row= "<tr id=row-"+counter+"><td><input type=checkbox name=deleteTodo id=ch-"+todoParticularUserArray[counter].todoNo+"></input></td><td>"+ todoParticularUserArray[counter].todoTitle + "</td><td>" + todoParticularUserArray[counter].todoCategory + "</td><td>"+ todoParticularUserArray[counter].todoDue+"</td><td>" + todoParticularUserArray[counter].remainder+"</td><td>" + todoParticularUserArray[counter].public+"</td><td>" + todoParticularUserArray[counter].desc+"</td><td>"+todoParticularUserArray[counter].status+"</td><td> <input type=button name=editArray value=Edit id=button-"+todoParticularUserArray[counter].todoNo+" onclick=editTodo('"+todoParticularUserArray[counter].todoNo+"');></td></tr>";
                 list.innerHTML=row;
@@ -267,6 +269,7 @@ function filterByCat()
         if(filteredarray.length===0)
         {
             document.getElementById("theadId").style.display="none";
+
 
             let newEle=document.createElement("tr");
             var node=document.createTextNode("no todos");
@@ -302,6 +305,7 @@ function filterByCat()
         }      
         if(filteredarray.length===0)
         {
+            
             document.getElementById("theadId").style.display="none";
 
             let newEle=document.createElement("tr");
@@ -342,6 +346,7 @@ function filterByCat()
         if(filteredarray.length===0)
         {
             document.getElementById("theadId").style.display="none";
+
 
             let newEle=document.createElement("tr");
             var node=document.createTextNode("no todos");
@@ -443,6 +448,8 @@ function filterByDate()
         
     if(filteredarray.length===0)
     {
+        document.getElementById("theadId").style.display="none";
+
         let newEle=document.createElement("tr");
         var node=document.createTextNode("no todos");
         newEle.appendChild(node);
