@@ -68,10 +68,12 @@ function showItem(){
     
     if(a.length===0)
     {
+        document.getElementById("theadId").style.display="none";
         let newEle=document.createElement("tr");
         var node=document.createTextNode("no todos");
         newEle.appendChild(node);
-        userTable.appendChild(newEle); 
+        userTable.appendChild(newEle);
+      
     }
 
     else
@@ -85,6 +87,8 @@ function showItem(){
             
             if(todoParticularUserArray.length===0)
             {
+                document.getElementById("theadId").style.display="none";
+
                 let newEle=document.createElement("tr");
                 var node=document.createTextNode("no todos");
                 newEle.appendChild(node);
@@ -216,6 +220,8 @@ function filterByCat()
     {
         if(todoParticularUserArray.length===0)
         {
+            document.getElementById("theadId").style.display="none";
+
             let newEle=document.createElement("tr");
             var node=document.createTextNode("no todos");
         
@@ -260,6 +266,8 @@ function filterByCat()
 
         if(filteredarray.length===0)
         {
+            document.getElementById("theadId").style.display="none";
+
             let newEle=document.createElement("tr");
             var node=document.createTextNode("no todos");
         
@@ -294,6 +302,8 @@ function filterByCat()
         }      
         if(filteredarray.length===0)
         {
+            document.getElementById("theadId").style.display="none";
+
             let newEle=document.createElement("tr");
             var node=document.createTextNode("no todos");
         
@@ -331,6 +341,8 @@ function filterByCat()
         
         if(filteredarray.length===0)
         {
+            document.getElementById("theadId").style.display="none";
+
             let newEle=document.createElement("tr");
             var node=document.createTextNode("no todos");
         
@@ -380,6 +392,8 @@ function filterByName()
     
     if(titleArray.length===0)
     {
+        document.getElementById("theadId").style.display="none";
+
         let newEle=document.createElement("tr");
         var node=document.createTextNode("no todos");
     
