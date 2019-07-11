@@ -52,7 +52,7 @@ function addItem(){
         isPublic="";
     }
     else{
-        document.querySelector('input[name="ispublic"]:checked').value;
+       isPublic= document.querySelector('input[name="ispublic"]:checked').value;
     }
     todoObj={
         "todoNo":todoID,
