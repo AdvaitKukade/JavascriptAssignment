@@ -43,6 +43,12 @@ thead tr td{
     padding: 10px;
 }
 
+tbody tr td{
+    border:1px black solid;
+    padding: 10px;
+}
+
+
 button{
 
     background-color: purple;
@@ -99,4 +105,8 @@ button{
 {
     background-color: purple;
     color:white;
+}
+
+h2{
+    display:none;
 }
