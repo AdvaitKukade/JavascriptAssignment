@@ -1,3 +1,9 @@
+function displayTodo()
+{
+
+}
+
+
 function checkSession(){
     var seesionValue=sessionStorage.getItem("sessionkey");
     if(seesionValue===null)
@@ -206,6 +212,7 @@ function filterByCat()
     let particularIndex;
     var tbody=document.getElementById("tblBody");
     var userTable = document.getElementById("tblBody");
+    var DomValue=document.getElementById("listForCategory").value;
 
 
     for(index=0;index<userArrayItem.length;index++)
@@ -266,8 +273,8 @@ function filterByCat()
         var filteredarray=todoParticularUserArray.filter(function(category1){
         return(category1.todoCategory=== "Social")})
         
-        let a=document.getElementById("tblBody");
         let deleteChild=a.lastElementChild;
+        let a=document.getElementById("tblBody");
         
         while(deleteChild)
         {

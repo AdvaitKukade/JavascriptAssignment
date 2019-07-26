@@ -21,8 +21,8 @@ function nameValidation(){
     var lname=document.getElementById("lastNametxt").value;
     var email=document.getElementById("username").value;
     var passwd=document.getElementById("pwd").value;
-    var genSelected = document.querySelector('input[name="gender"]:checked').value;
-    var addr=document.getElementById("address").value;
+    //var genSelected = document.querySelector('input[name="gender"]:checked').value;
+    //var addr=document.getElementById("address").value;
     var repass=document.getElementById("repwd").value;
     let firstNameError=document.getElementById("error_firstName");
     let lastNameError=document.getElementById("error_lastName");
@@ -83,27 +83,6 @@ function nameValidation(){
     }
     
     addUser();
-}
-
-function convertProfileImage(){
-    let image = document.getElementById("profileImg").files[0];
-
-    getimgbase64(image);
-
-    function getimgbase64(image)
-    {
-        let readImg = new FileReader();
-        readImg.readAsDataURL(image);
-
-        readImg.onload = function () {
-            let profileUrl = readImg.result;
-            sessionStorage.setItem("profileSessionKey",profileUrl);
-            document.getElementById("imgId").src = sessionStorage.profileSessionKey;
-        };
-
-        readImg.onerror = function (error) {
-        };
-    }
 }
 
 function addUser(){   
